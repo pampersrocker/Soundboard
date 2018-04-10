@@ -1,21 +1,58 @@
-import QtQuick 2.4
+import QtQuick 2.7
 import QtQuick.Controls 1.0
-
+import QtMultimedia 5.8
 Item {
+    id: root
     width: 100
     height: 100
 
+
     property string text: "A"
+    property string sound
 
     signal clicked(var button)
+    signal activated(var button)
+
+    onActivated: {
+        soundEffect.play();
+        clickedAnimation.restart();
+
+    }
+
+
+
+
+    onSoundChanged: {
+        console.log("Changed sound of", text, " to ", sound);
+    }
+
+    Audio {
+        id: soundEffect
+        source: root.sound
+    }
+
 
     Button {
-        id: button1
+        id: button
         width: 100
         height: 100
         z: -1
         onClicked: {
-            parent.clicked(parent)
+            root.clicked(root)
+        }
+    }
+
+    Rectangle{
+        id: colorRect
+        anchors.fill: parent
+        color: "#e6e6e6"
+
+        ColorAnimation on color {
+            id: clickedAnimation
+            from: "red"
+            to: "#e6e6e6"
+            duration: 200
+            running: false
         }
     }
 
@@ -29,5 +66,17 @@ Item {
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: 30
+    }
+
+    Shortcut
+    {
+        id: shortcut
+        sequence: root.text
+        context: Qt.ApplicationShortcut
+        onActivated: {
+            console.log("pressed ", root.text)
+            root.activated(root)
+        }
+        enabled: true
     }
 }
