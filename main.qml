@@ -13,6 +13,10 @@ Window {
         console.log(button.text, " selected")
         buttonSettings.selectedButton = button
     }
+    function soundPlayed(sound)
+    {
+
+    }
     SplitView {
         id: splitView
         anchors.fill: parent
@@ -26,7 +30,7 @@ Window {
 
             Row{
                 spacing: 5
-                ShortcutButton { text: "Q"; onClicked: buttonSelected(button)}
+                ShortcutButton { text: "Q"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
                 ShortcutButton { text: "W"; onClicked: buttonSelected(button)}
                 ShortcutButton { text: "E"; onClicked: buttonSelected(button)}
                 ShortcutButton { text: "R"; onClicked: buttonSelected(button)}

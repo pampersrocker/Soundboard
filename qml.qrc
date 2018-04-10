@@ -3,5 +3,6 @@
         <file>main.qml</file>
         <file>ShortcutButton.qml</file>
         <file>ButtonSettings.qml</file>
+        <file>SoundInstance.qml</file>
     </qresource>
 </RCC>

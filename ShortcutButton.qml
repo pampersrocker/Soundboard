@@ -12,12 +12,22 @@ Item {
 
     signal clicked(var button)
     signal activated(var button)
+    signal soundPlayed(var sound)
 
     onActivated: {
-        soundEffect.play();
+        //soundEffect.play();
         clickedAnimation.restart();
+        var newAudio = Qt.createComponent("SoundInstance.qml").createObject(root, {"source": sound})
+        newAudio.play()
+        if (newAudio.playbackState !== MediaPlayer.PlayingState)
+        {
+            console.log("destroying empty")
+            newAudio.destroy()
+        }
 
+        soundPlayed(newAudio)
     }
+
 
 
 
@@ -26,10 +36,6 @@ Item {
         console.log("Changed sound of", text, " to ", sound);
     }
 
-    Audio {
-        id: soundEffect
-        source: root.sound
-    }
 
 
     Button {
