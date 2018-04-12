@@ -4,5 +4,8 @@
         <file>ShortcutButton.qml</file>
         <file>ButtonSettings.qml</file>
         <file>SoundInstance.qml</file>
+        <file>ActiveSoundList.qml</file>
+        <file>ActiveSoundModel.qml</file>
+        <file>ActiveSoundListItem.qml</file>
     </qresource>
 </RCC>

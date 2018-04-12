@@ -56,7 +56,7 @@ Item {
         ColorAnimation on color {
             id: clickedAnimation
             from: "red"
-            to: "#e6e6e6"
+            to: state === "" ? "#e6e6e6" : "#00a805"
             duration: 200
             running: false
         }
@@ -85,4 +85,14 @@ Item {
         }
         enabled: true
     }
+    states: [
+        State{
+                name: "Bound"
+                when: sound !== ""
+                PropertyChanges {
+                    target: colorRect
+                    color: "#00a805"
+                }
+        }
+    ]
 }
