@@ -19,7 +19,10 @@ Item {
 
             function onPositionChanged()
             {
-                progress.value = sound.position
+                if(sound)
+                {
+                    progress.value = sound.position
+                }
             }
 
             Component.onCompleted: {

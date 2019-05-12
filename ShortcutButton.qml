@@ -9,6 +9,8 @@ Item {
 
     property string text: "A"
     property string sound
+    property real volume: 1.0
+    property var audioInstance
 
     signal clicked(var button)
     signal activated(var button)
@@ -17,15 +19,26 @@ Item {
     onActivated: {
         //soundEffect.play();
         clickedAnimation.restart();
-        var newAudio = Qt.createComponent("SoundInstance.qml").createObject(root, {"source": sound})
-        newAudio.play()
-        if (newAudio.playbackState !== MediaPlayer.PlayingState)
+        if(audioInstance)
         {
-            console.log("destroying empty")
-            newAudio.destroy()
+            audioInstance.stop()
+            audioInstance = undefined
         }
-
-        soundPlayed(newAudio)
+        else if(sound.length)
+        {
+            var newAudio = Qt.createComponent("SoundInstance.qml").createObject(root, {"source": sound, "volume": volume})
+            newAudio.play()
+            if (newAudio.playbackState !== MediaPlayer.PlayingState)
+            {
+                console.log("destroying empty")
+                newAudio.destroy()
+            }
+            else
+            {
+                audioInstance = newAudio
+                soundPlayed(newAudio)
+            }
+        }
     }
 
 

@@ -1,7 +1,7 @@
 import QtQuick 2.0
-import QtQuick.Controls 2.3
+import QtQuick.Controls 1.4
 import QtQuick.Dialogs 1.0
-
+import QtMultimedia 5.8
 Item {
     id: root
 
@@ -18,6 +18,15 @@ Item {
 
     property var selectedButton
 
+    onSelectedButtonChanged: {
+        if(root.selectedButton)
+        {
+            volumeSlider.value = QtMultimedia.convertVolume(root.selectedButton.volume,
+                                                              QtMultimedia.LinearVolumeScale,
+                                                              QtMultimedia.LogarithmicVolumeScale)
+        }
+    }
+
     Column {
         id: column
         anchors.fill: parent
@@ -33,7 +42,7 @@ Item {
         Row {
             id: row
             width: 200
-            height: 400
+            height: 100
 
             TextField {
                 id: textField
@@ -50,9 +59,44 @@ Item {
                     browseDialog.open();
                 }
             }
+
+
+
+
         }
 
+        Slider {
+            id: volumeSlider
+
+            property real volume: QtMultimedia.convertVolume(volumeSlider.value,
+                                                                 QtMultimedia.LogarithmicVolumeScale,
+                                                                 QtMultimedia.LinearVolumeScale)
+            value: 1.0
+            onValueChanged: {
+                root.selectedButton.volume = volume
+                volumeText.updateVolume(value)
+            }
+
+
+        }
+
+        Text {
+            id: volumeText
+            function updateVolume(volume)
+            {
+                var dbVolume = QtMultimedia.convertVolume(volume,
+                                                      QtMultimedia.LogarithmicVolumeScale,
+                                                      QtMultimedia.DecibelVolumeScale)
+                volumeText.text = qsTr("%1 dB".arg(dbVolume))
+            }
+
+            text: updateVolume(1)
+
+        }
     }
-
-
 }
+
+/*##^## Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+ ##^##*/
