@@ -3,8 +3,8 @@ import QtMultimedia 5.0
 MediaPlayer {
     id: player
     onStopped: {
-        console.log("destroyed");
-        destroy()
+        //console.log("destroyed");
+        //destroy()
     }
 
     Component.onCompleted: {

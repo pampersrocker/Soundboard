@@ -24,13 +24,17 @@ Item {
             volumeSlider.value = QtMultimedia.convertVolume(root.selectedButton.volume,
                                                               QtMultimedia.LinearVolumeScale,
                                                               QtMultimedia.LogarithmicVolumeScale)
+            textField.text = root.selectedButton.sound
+            allowMultiple.checked = root.selectedButton.allowMultiple
         }
+
     }
 
     Column {
         id: column
         anchors.fill: parent
         spacing: 10
+        anchors.margins: 10
 
 
         Text {
@@ -41,10 +45,10 @@ Item {
 
         Row {
             id: row
-            width: 200
-            height: 100
+            width: 400
 
             TextField {
+                width: 300
                 id: textField
                 transformOrigin: Item.TopLeft
                 onTextChanged: selectedButton.sound = text
@@ -60,9 +64,40 @@ Item {
                 }
             }
 
+            Button {
+                id: clearButton
+                width: 80
+                height: 40
+                text: qsTr("Clear")
+                onClicked: {
+                    selectedButton.sound = ""
+                    textField.text = ""
+                }
+            }
 
 
 
+
+        }
+
+        Row{
+            spacing: 10
+
+            Text{
+                text: qsTr("Allow Multiple")
+            }
+
+            CheckBox
+            {
+                id: allowMultiple
+
+                onCheckedChanged: {
+                    if(root.selectedButton)
+                    {
+                        root.selectedButton.allowMultiple = checked
+                    }
+                }
+            }
         }
 
         Slider {
@@ -73,11 +108,12 @@ Item {
                                                                  QtMultimedia.LinearVolumeScale)
             value: 1.0
             onValueChanged: {
-                root.selectedButton.volume = volume
+                if(root.selectedButton)
+                {
+                    root.selectedButton.volume = volume
+                }
                 volumeText.updateVolume(value)
             }
-
-
         }
 
         Text {
@@ -95,6 +131,10 @@ Item {
         }
     }
 }
+
+
+
+
 
 /*##^## Designer {
     D{i:0;autoSize:true;height:480;width:640}

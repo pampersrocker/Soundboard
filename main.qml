@@ -34,41 +34,41 @@ Window {
                 Row{
                     spacing: 5
                     ShortcutButton { text: "Q"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
-                    ShortcutButton { text: "W"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "E"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "R"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "T"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "Y"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "U"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "I"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "O"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "P"; onClicked: buttonSelected(button)}
+                    ShortcutButton { text: "W"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "E"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "R"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "T"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "Y"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "U"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "I"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "O"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "P"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
                 }
                 Row{
                     spacing: 5
                     Item{width:66;height: 100}
-                    ShortcutButton { text: "A"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "S"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "D"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "F"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "G"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "H"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "J"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "K"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "L"; onClicked: buttonSelected(button)}
+                    ShortcutButton { text: "A"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "S"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "D"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "F"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "G"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "H"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "J"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "K"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "L"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
 
                 }
 
                 Row{
                     spacing: 5
                     Item{width:99;height: 100}
-                    ShortcutButton { text: "Z"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "X"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "C"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "V"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "B"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "N"; onClicked: buttonSelected(button)}
-                    ShortcutButton { text: "M"; onClicked: buttonSelected(button)}
+                    ShortcutButton { text: "Z"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "X"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "C"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "V"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "B"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "N"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
+                    ShortcutButton { text: "M"; onClicked: buttonSelected(button); onSoundPlayed: window.soundPlayed(sound)}
                 }
             }
 
